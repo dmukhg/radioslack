@@ -7,7 +7,7 @@ from playlist.serializers import SongSerializer
 from playlist.service import playlist_service
 
 @api_view(['GET'])
-def song_next(request, offset=0):
+def song_next(request):
     """
     List all snippets, or create a new snippet.
     """
