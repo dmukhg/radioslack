@@ -4,6 +4,7 @@ from rest_framework.response import Response
 
 from playlist.models import Song, SlackUser
 from playlist.serializers import SongSerializer
+from playlist.service import playlist_service
 
 @api_view(['GET'])
 def song_next(request, offset=0):
@@ -11,7 +12,6 @@ def song_next(request, offset=0):
     List all snippets, or create a new snippet.
     """
     if request.method == 'GET':
-        user = SlackUser.objects.get(username='dipanjan')
-        song = Song(user=user, source='youtube', link='https://www.youtube.com/watch?v=kde0XOnxeJM')
+        song = playlist_service.get_next()
         serializer = SongSerializer(song)
         return Response(serializer.data)

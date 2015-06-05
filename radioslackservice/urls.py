@@ -22,5 +22,5 @@ from playlist import views as playlist_views
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    url(r'^song/(?P<offset>[0-9]+)$', playlist_views.song_next),
+    url(r'^song/$', playlist_views.song_next),
 ]

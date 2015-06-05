@@ -12,6 +12,7 @@ class Song(models.Model):
     user = models.ForeignKey('SlackUser')
     source = models.CharField(max_length=10, choices=SOURCE_CHOICES)
     link = models.CharField(max_length=1000, blank=False)
+    order = models.IntegerField(default=1)
 
     def __repr__(self):
         return ' <Song: ' + str(self.source) + ' >'

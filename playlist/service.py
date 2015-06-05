@@ -1,4 +1,4 @@
-from playlist.models import models
+from playlist.models import SlackUser, Song
 from Queue import Queue
 
 class PlaylistService:
@@ -40,3 +40,6 @@ class RepeatRecommendationService:
             self.offset += 1
 
         return el
+
+reco_service = RepeatRecommendationService()
+playlist_service = PlaylistService(reco_service)
